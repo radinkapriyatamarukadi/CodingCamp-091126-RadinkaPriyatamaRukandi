@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise - Expense Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div>
+                <h1>SpendWise</h1>
+                <p>Track your expenses, manage your budget.</p>
+            </div>
+            <button id="themeToggle">🌙 Theme</button>
+        </header>
+
+        <section class="summary">
+            <div class="summary-card">
+                <p>Total Expenses</p>
+                <h2 id="totalBalance">Rp0</h2>
+                <span id="transactionCount">0 transactions</span>
+            </div>
+
+            <div class="summary-card">
+                <p>This Month</p>
+                <h2 id="monthlySummary">Rp0</h2>
+                <span>Monthly spending</span>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2>Add Transaction</h2>
+
+            <form id="transactionForm">
+                <input
+                    type="text"
+                    id="itemName"
+                    placeholder="Item name"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Amount (Rp)"
+                    min="1"
+                    required
+                >
+
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Fun">Fun</option>
+                </select>
+
+                <button type="submit">Add Transaction</button>
+            </form>
+
+            <div class="custom-category">
+                <h3>Create Custom Category</h3>
+                <div class="custom-category-input">
+                    <input
+                        type="text"
+                        id="newCategory"
+                        placeholder="New category name"
+                    >
+                    <button type="button" id="addCategoryBtn">
+                        Add Category
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="transactions-section">
+            <div class="section-heading">
+                <h2>Recent Transactions</h2>
+
+                <select id="sortTransactions">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="highest">Highest Amount</option>
+                    <option value="lowest">Lowest Amount</option>
+                </select>
+            </div>
+
+            <div id="transactionList"></div>
+        </section>
+
+        <section class="chart-section">
+            <h2>Spending Distribution</h2>
+            <canvas id="spendingChart"></canvas>
+        </section>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
